@@ -50,6 +50,7 @@ fun CounterApp(modifier: Modifier = Modifier) {
         Text(text = counter.toString())
         Row {
             ButtonCounter(type = { counter-- }, nameOfButton = "Decrease")
+            ButtonCounter(type = { counter++ }, nameOfButton = "Increase")
         }
     }
 }
