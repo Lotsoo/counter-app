@@ -13,6 +13,10 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.example.counterapp.ui.theme.CounterAppTheme
@@ -35,12 +39,18 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun CounterApp(modifier: Modifier = Modifier) {
+    var counter by remember {
+        mutableIntStateOf(value = 0)
+    }
     Column(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier.fillMaxSize()
     ) {
-        Text(text = "0")
+        Text(text = counter.toString())
+        Row {
+            ButtonCounter(type = { counter-- }, nameOfButton = "Decrease")
+        }
     }
 }
 
