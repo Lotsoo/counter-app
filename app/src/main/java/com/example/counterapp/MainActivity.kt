@@ -6,8 +6,10 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Button
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -39,5 +41,12 @@ fun CounterApp(modifier: Modifier = Modifier) {
         modifier = Modifier.fillMaxSize()
     ) {
         Text(text = "0")
+    }
+}
+
+@Composable
+fun ButtonCounter(type: () -> Unit, nameOfButton: String, modifier: Modifier = Modifier) {
+    Button(onClick = type) {
+        Text(text = nameOfButton)
     }
 }
